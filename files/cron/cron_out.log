@@ -1,0 +1,40 @@
+command: (su -s /bin/bash -c 'if [[ ! -z ${HOLBERTON_INTRAN...
+count: 1042
+delay: 0:05:00
+
+command: (publishLogs.py --de-dupe --conf-path '/opt/elasti...
+count: 261
+delay: 0:20:00
+
+command: (clearStaleLogPublishingRecords.py)...
+count: 260
+delay: 0:20:00
+
+command: (su -s /bin/bash -c 'source /opt/elasticbeanstalk/...
+count: 86
+delay: 1:00:00
+
+command: (su -s /bin/bash -c 'source /opt/elasticbeanstalk/...
+count: 86
+delay: 1:00:00
+
+command: (run-parts /etc/cron.hourly)...
+count: 86
+delay: 1:00:00
+
+command: (su -s /bin/bash -c 'source /opt/elasticbeanstalk/...
+count: 86
+delay: 1:00:00
+
+command: (su -s /bin/bash -c 'source /opt/elasticbeanstalk/...
+count: 86
+delay: 1:00:00
+
+command: (/sbin/start --quiet update-motd)...
+count: 3
+delay: 1 day, 0:00:00
+
+command: (su -s /bin/bash -c 'source /opt/elasticbeanstalk/...
+count: 3
+delay: 1 day, 0:00:00
+
