@@ -7,6 +7,11 @@ entry = namedtuple('entry', ['time', 'name'])
 
 
 def parser(file, pattern):
+    """
+    :param file: file to parse
+    :param pattern: regex pattern to match
+    :return: a list of named tuples with the timestamp of start of event and name of event
+    """
     infile = open(file, 'r')
     regex = re.compile(pattern)
 
@@ -23,6 +28,12 @@ def parser(file, pattern):
 
 
 def process_events(event_list, writefile):
+    """
+    :param event_list: list from parser()
+    :param writefile: output file to write to
+    :return: A dictionary with events and their time duration as well as the total time of the event
+    Writes to the output file the schedule in the desired format
+    """
     summary_dict = {}
     total_time = timedelta()
     for event, next_event in zip(event_list, event_list[1:]):  # Zip through same list with one offset to use next event
@@ -40,6 +51,12 @@ def process_events(event_list, writefile):
 
 
 def write_summary_out(summary_dict, time, writefile):
+    """
+    :param summary_dict: dictionary from process_events()
+    :param time: total time of the event
+    :param writefile: output file to write to
+    Writes the summary portion of the desired output
+    """
     writefile.write('\n')  # Add a line between timeline and summary
     for key, value in summary_dict.items():
         writefile.write('%-20s %3s minutes %4d%%\n' % (key, (value.seconds//60), ((value/time)*100)))
@@ -47,8 +64,8 @@ def write_summary_out(summary_dict, time, writefile):
 
 if __name__ == "__main__":
     pattern = r'(\d*:\d*) (\w*)'
-    infile = '../files/event/event_schedule.log'
-    outfile = '../files/event/event_schedule_out.log'
+    infile = './event_schedule.log'
+    outfile = './event_schedule_out.log'
 
     writefile = open(outfile, "w")
     summary_dict, total_time = process_events(parser(infile, pattern), writefile)

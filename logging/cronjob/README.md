@@ -1,0 +1,1 @@
+This is the solution to https://sweetcode.io/cron-log-parsing/

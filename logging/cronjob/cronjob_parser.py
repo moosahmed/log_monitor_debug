@@ -4,7 +4,13 @@ from datetime import datetime
 
 
 def run_re(pattern, file):
-
+    """
+    Takes a regex pattern and a cron log file
+    Returns:
+        The number of total cron jobs
+        Unique commands
+        Dictionary of the cron commands and list of timestamps
+    """
     re_obj = re.compile(pattern)
     infile = open(file, 'r')
 
@@ -26,6 +32,10 @@ def run_re(pattern, file):
 
 
 def calc(dix, outfile):
+    """
+    Takes a dictionary and an output file
+    Writes the summary output to the output file
+    """
     outfile = open(outfile, "w")
     for key, value in dix.items():
         count = len(value)
@@ -39,8 +49,8 @@ def calc(dix, outfile):
 
 if __name__ == "__main__":
     pattern = "CROND\[[0-9]*\]: \(root\) CMD (.*)"
-    file = "../files/cron/cron_for_parsing_exercise.log"
-    out_file = "../files/cron/cron_out.log"
+    file = "./cron_for_parsing_exercise.log"
+    out_file = "./cron_out.log"
 
     match_count, unq_cron, result_dict = run_re(pattern, file)
     print('Matches:', match_count)
