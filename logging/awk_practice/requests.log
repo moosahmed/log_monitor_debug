@@ -1,0 +1,9 @@
+Jul 23 18:57:12 httpd[31950]: "GET /foo/bar HTTP/1.1" 200 344
+
+Jul 23 18:57:13 httpd[31950]: "GET / HTTP/1.1" 200 9300
+
+Jul 23 19:01:27 httpd[31950]: "GET / HTTP/1.1" 200 9300
+
+Jul 23 19:01:55 httpd[31950]: "GET /foo/baz HTTP/1.1" 200 6401
+
+Jul 23 19:02:31 httpd[31950]: "GET /foo/baz?page=2 HTTP/1.1" 200 6312
