@@ -32,7 +32,7 @@ def calc_duration(start_dic, stop_dic):
             for start_time, stop_time in zip(start_dic[video_id][user_id], stop_dic[video_id][user_id]):
                 td = stop_time - start_time
                 duration[video_id] = duration.get(video_id, timedelta()) + td  # Add all durations for the same video
-    max2 = dict(sorted(duration.items(), key=operator.itemgetter(1), reverse=True)[:2])  # Selecting top 2
+    max2 = dict(sorted(duration.items(), key=operator.itemgetter(1), reverse=True)[:3])  # Selecting top 2
     print(max2)
 
 

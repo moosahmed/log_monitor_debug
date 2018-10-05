@@ -1,3 +1,4 @@
+# Total number of bytes sent per IP
 import re
 
 
@@ -8,7 +9,7 @@ def parser(file):
         match = pattern.search(line)
         if match:
             dic[match.group(1)] = dic.get(match.group(1), 0) + int(match.group(3))
-            print(dic)
+    print(dic)
 
 
 file = open('./apache.log', 'r')
