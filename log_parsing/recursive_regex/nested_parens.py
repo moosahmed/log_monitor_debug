@@ -1,8 +1,8 @@
 import regex
 
-arr = ['({(){([])}[]})','(a)d[b]e{c}','()]','([)]','{a[b]c}']
+arr = ['({(){([])}[]})','(a)d[bdbdb]e{c}','()]','([)]','{a[b]c}']
 
-pattern = regex.compile(r'^((?:[^{\[()\]}]*|\((?1)\)|\[(?1)\]|\{(?1)\})*)$')
+pattern = regex.compile(r'^((?:[^{\[()\]}]|\((?1)\)|\[(?1)\]|\{(?1)\})*)$')
 
 for i in arr:
     match = pattern.search(i)
