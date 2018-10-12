@@ -1,12 +1,13 @@
 import re
+import regex
 
-regex = re.compile(r'<property name="(.*?)">(.*?)</property>')
+reg = regex.compile(r'<property name="(.*?)">(.*?)</property>')
 
 out = []
 
 with open('sfbios.log', 'r') as f:
     for line in f:
-        match = regex.search(line)
+        match = reg.search(line)
         if match and match.group(2) == "Enabled":
             out.append((match.group(1), match.group(2)))
 
